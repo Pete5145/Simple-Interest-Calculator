@@ -15,15 +15,58 @@
     <section class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>A Simple Calculator</h1>
-                <form action="">
+                <h1 class="text-primary">A Simple Interest Calculator</h1>
+            </div>
+
+            <div class="col-md-12 mt-5">
+         
                     <div class="form-group">
-                        <label for="principal">Principal</label>
+                        <label for="principal" class="text-success">Please enter the principal amount:</label>
                         <input type="number" id="principal" class="form-control">
                     </div>
-                </form>
+
+                    <div class="form-group">
+                        <label for="rate" class="text-danger">Please enter loan rate: </label>
+                        <input type="number" id="rate" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time" class="text-warning">Please enter loan tenure (time in years): </label>
+                        <input type="number" id="time" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary form-control" id="calculate">Calculate</button>
+                    </div>
+
+                   <div id="display"></div>
+               
             </div>
         </div>
     </section>
+
+
+
+    <script>
+        let num1 = document.getElementById("principal");
+        let num2 = document.getElementById("rate");
+        let num3 = document.getElementById("time");
+        let calculate = document.getElementById("calculate");
+        let display = document.getElementById("display");
+
+        calculate.addEventListener("click", calculateInterest);
+
+        function calculateInterest() {
+         let principal = num1.value
+         let rate = num2.value
+         let time = num3.value
+         
+         let result = (principal * rate * time) / 100;
+        
+         display.innerHTML = `Simple interest is: &#8358;${result.toFixed(2)}`;
+        }
+
+        
+    </script>
 </body>
 </html>
